@@ -1,0 +1,33 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+using System.Text;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string s = "the sky is blue";
+        string word = ReverseWords(s);
+        Console.WriteLine(word);
+    }
+    public static string ReverseWords(string s){
+        StringBuilder result = new StringBuilder();
+        int i = s.Length-1;
+        
+        while(i>=0){
+            while(i>=0 && s[i] ==' ') i--;
+            if(i<0) break;
+            
+            int end = i;
+            while(i>=0 && s[i] != ' ')i--;
+            
+            result.Append(s.Substring(i+1,end-i));
+            result.Append(" ");
+            
+            
+        }
+        return result.ToString();
+        
+    }
+}

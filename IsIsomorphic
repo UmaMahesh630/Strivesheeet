@@ -31,4 +31,47 @@ public class HelloWorld
        return true;
     }
 }
+
+//uysing Dictionary
+
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+using System.Text;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string s = "egg";
+        string t = "add";
+        bool word = IsIsomorphic(s,t);
+        Console.WriteLine(word);
+    }
+    public static bool IsIsomorphic(string s, string t){
+       Dictionary<char, char> map_s = new Dictionary<char,char>();
+       Dictionary<char, char> map_t = new Dictionary<char,char>();
+       
+       for(int i=0; i<s.Length; i++){
+           char str_s = s[i];
+           char str_t = t[i];
+           
+           if(map_s.ContainsKey(str_s)){
+               if(map_s[str_s] != str_t) return false;
+           } else{
+               map_s[str_s] = str_t;
+           }
+           
+           if(map_s.ContainsKey(str_t)){
+               if(map_t[str_t] != str_s) return false;
+           } else {
+               map_t[str_t] = str_s;
+           }
+           
+       }
+       return true;
+    }
+}
+ 
  
